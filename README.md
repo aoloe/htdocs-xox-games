@@ -1,2 +1,3 @@
 # htdocs-xox-games
-list of js games on xox.ch
+
+List of word based javascript games on xox.ch.
