@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>title</title>
+    <title>Decodiertafel</title>
     <style>
       select[name="red"] {
         background-color: crimson;
@@ -32,15 +32,6 @@
         padding: .5em;
       }
     </style>
-  </head>
-  <body>
-    <!-- page content -->
-  </body>
-</html<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Decodiertafel</title>
   </head>
   <body>
     <form>
@@ -127,12 +118,10 @@
       'Y🢁',
       '☐🢃',
     ];
-    console.log('check', check);
     check.onclick = function(event) {
       let redValue = document.getElementsByName('red')[0].value;
       let blueValue = document.getElementsByName('blue')[0].value;
       let yellowValue = document.getElementsByName('yellow')[0].value;
-      console.log(redValue, blueValue, yellowValue);
 
       let result = document.getElementById('solution')
       result.innerHTML = '<span class="yellow">' + yellow[yellowValue] + '</span> <span class="blue">' + blue[blueValue] + '</span> <span class="red">' + red[redValue] + '</span>';
