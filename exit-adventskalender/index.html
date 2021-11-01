@@ -38,7 +38,6 @@
       <select name="red">
         <option value="0">0</option>
         <option value="1">1</option>
-        <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
         <option value="4">4</option>
@@ -51,7 +50,6 @@
       <select name="blue">
         <option value="0">0</option>
         <option value="1">1</option>
-        <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
         <option value="4">4</option>
@@ -63,7 +61,6 @@
       </select>
       <select name="yellow">
         <option value="0">0</option>
-        <option value="1">1</option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -81,41 +78,41 @@
     let check = document.getElementById('check');
       // 🢀 🢂 🢁 🢃 🢄 🢅 🢆 🢇 
     const red = [
-      '☐🢆',
+      '◼🢆',
       'Y🢄',
       '▙🢅',
       '▼🢇',
       '☾🢁',
       '★🢃',
-      '◯🢂',
-      '⬡🢀',
-      '◊🢆',
+      '⬤🢂',
+      '⬢🢀',
+      '⧫🢆',
       '✚🢄',
 
     ];
     const blue = [
       '✚🢂',
-      '◊🢀',
-      '⬡🢆',
-      '◯🢄',
+      '⧫🢀',
+      '⬢🢆',
+      '⬤🢄',
       '★🢅',
       '☾🢇',
       '▼🢁',
       '▙🢃',
       'Y🢂',
-      '☐🢀',
+      '◼🢀',
     ];
     const yellow = [
       '✚🢁',
-      '◊🢃',
-      '⬡🢂',
-      '◯🢀',
+      '⧫🢃',
+      '⬢🢂',
+      '⬤🢀',
       '★🢆',
       '☾🢄',
       '▼🢅',
       '▙🢇',
       'Y🢁',
-      '☐🢃',
+      '◼🢃',
     ];
     check.onclick = function(event) {
       let redValue = document.getElementsByName('red')[0].value;
