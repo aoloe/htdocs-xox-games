@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <style>
+      select[name="red"] {
+        background-color: crimson;
+        color: white;
+      }
+      select[name="blue"] {
+        background-color: CornflowerBlue;
+        color: white;
+      }
+      select[name="yellow"] {
+        background-color: GoldenRod;
+        color: white;
+      }
+      span.red {
+        background-color: crimson;
+        color: white;
+        padding: .5em;
+      }
+      span.blue {
+        background-color: CornflowerBlue;
+        color: white;
+        padding: .5em;
+      }
+      span.yellow {
+        background-color: GoldenRod;
+        color: white;
+        padding: .5em;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- page content -->
+  </body>
+</html<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Decodiertafel</title>
+  </head>
+  <body>
+    <form>
+      <option>
+      <select name="red">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+      </select>
+      <select name="blue">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+      </select>
+      <select name="yellow">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+      </select>
+      <button type="button" id="check">check</button>
+    </form>
+    <p>Lösung: <span id="solution"></span></p>
+    <script>
+    let check = document.getElementById('check');
+      // 🢀 🢂 🢁 🢃 🢄 🢅 🢆 🢇 
+    const red = [
+      '☐🢆',
+      'Y🢄',
+      '▙🢅',
+      '▼🢇',
+      '☾🢁',
+      '★🢃',
+      '◯🢂',
+      '⬡🢀',
+      '◊🢆',
+      '✚🢄',
+
+    ];
+    const blue = [
+      '✚🢂',
+      '◊🢀',
+      '⬡🢆',
+      '◯🢄',
+      '★🢅',
+      '☾🢇',
+      '▼🢁',
+      '▙🢃',
+      'Y🢂',
+      '☐🢀',
+    ];
+    const yellow = [
+      '✚🢁',
+      '◊🢃',
+      '⬡🢂',
+      '◯🢀',
+      '★🢆',
+      '☾🢄',
+      '▼🢅',
+      '▙🢇',
+      'Y🢁',
+      '☐🢃',
+    ];
+    console.log('check', check);
+    check.onclick = function(event) {
+      let redValue = document.getElementsByName('red')[0].value;
+      let blueValue = document.getElementsByName('blue')[0].value;
+      let yellowValue = document.getElementsByName('yellow')[0].value;
+      console.log(redValue, blueValue, yellowValue);
+
+      let result = document.getElementById('solution')
+      result.innerHTML = '<span class="yellow">' + yellow[yellowValue] + '</span> <span class="blue">' + blue[blueValue] + '</span> <span class="red">' + red[redValue] + '</span>';
+    }
+    </script>
+  </body>
+</html>
