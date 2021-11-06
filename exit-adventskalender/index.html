@@ -32,6 +32,18 @@
         color: white;
         padding: .5em;
       }
+      table#calendar td {
+        border: 1px solid black;
+        width: 5em;
+        height: 5em;
+        text-align: center;
+        background-color: darkslateblue;
+        color: white;
+      }
+      table#calendar td input {
+        width: 2em;
+        text-align: center;
+      }
     </style>
   </head>
   <body>
@@ -75,6 +87,9 @@
       <button type="button" id="check">check</button>
     </form>
     <p>Lösung: <span id="solution"></span></p>
+    <form>
+    <table id="calendar"></table>
+    </form>
     <script>
     let check = document.getElementById('check');
       // 🢀 🢂 🢁 🢃 🢄 🢅 🢆 🢇 
@@ -123,6 +138,80 @@
 
       let result = document.getElementById('solution')
       result.innerHTML = '<span class="yellow">' + yellow[yellowValue] + '</span> <span class="blue">' + blue[blueValue] + '</span> <span class="red">' + red[redValue] + '</span>';
+    }
+
+    // '✚', '⧫', '⬢', '⬤', '★', '☾', '▼', '▙', 'Y', '◼',
+    signs = [
+      [
+        ['Y', '▼', '☾'],
+        ['☾', '⬢', '✚'],
+        ['★', '★', '✚'],
+        ['✚', '◼', '✚'],
+        ['☾', '◼', '▙'],
+        ['⧫', '★', '▙'],
+      ],
+      [
+        ['▼', '⬤', '★'],
+        ['☾', '⬢', '☾'],
+        ['⧫', '★', '◼'],
+        ['⬢', 'Y', '⬤'],
+        ['▼', '✚', 'Y'],
+        ['⬢', '⬢', '⬤'],
+      ],
+      [
+        ['✚', '☾', 'Y'],
+        ['⬤', '◼', 'Y'],
+        ['⬤', '◼', '✚'],
+        ['★', '◼', '▼'],
+        ['▼', '⬤', '☾'],
+        ['⧫', '◼', '⧫'],
+      ],
+      [
+        ['▙', '▼', '▼'],
+        ['▙', '☾', '⬢'],
+        ['⬤', '⧫', '★'],
+        ['⧫', '⬢', '⧫'],
+        ['⬤', '⬢', '⬤'],
+        ['⧫', '◼', '◼'],
+      ],
+    ];
+
+    var doors = localStorage.getItem('adventskalender');
+    if (doors) {
+      doors = JSON.parse(doors);
+    } else {
+      doors = [];
+      for (let i = 0; i < 4; i++) {
+        let row = Array.apply(null, Array(6)).map(function () {return '';});
+        doors.push(row);
+      }
+    }
+    // console.log('doors', doors);
+
+
+    function updateValue(event) {
+      let element = event.target;
+      let name = element.name.split('_');
+      doors[parseInt(name[1])][parseInt(name[2])] = element.value;
+      localStorage.setItem('adventskalender', JSON.stringify(doors));
+    }
+
+    let calendar = document.getElementById('calendar');
+    for (let i = 0; i < 4; i++) {
+      let tr = document.createElement('tr');
+      calendar.appendChild(tr);
+      for (let j = 0; j < 6; j++) {
+        let td = document.createElement('td');
+        td.innerHTML = signs[i][j].join('<br>');
+        // td.innerHTML += '<br><input type="text" name="sign_'+i+'_'+j+'">';
+        td.innerHTML += '<br>';
+        let td_input = document.createElement('input');
+        td_input.name = 'sign_' + i + '_' + j;
+        td_input.value = doors[i][j];
+        td_input.addEventListener('input', updateValue);
+        td.appendChild(td_input);
+        calendar.appendChild(td);
+      }
     }
     </script>
   </body>
